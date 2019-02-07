@@ -1,5 +1,5 @@
 
-![lupa Logo](https://brodeau.github.io/sosie/sosie_files/sosie_300.svg)
+![lupa Logo](https://auraoupa.github.io/lupa/lupa-files/lupa-logo.jpg)
 
 
 ### lupa
