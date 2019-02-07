@@ -4,8 +4,6 @@
 
 List of proposed metrics :
 
-[here](https://gitlab.com/meom-group-private/cmems-22-glo-hr-codes/blob/master/Task1-fine-scale-metrics/Horizontal-gradient-buoyancy/NATL60_hgrad_small_scale_median.gif)
-
 * [fine scale surface vorticity variance](https://github.com/auraoupa/lupa/blob/master/vorticity-variance)
 * [kinetic energy wavenumber spectra](https://github.com/auraoupa/lupa/blob/master/kinetic-energy-spectra)
 * [numerical grid scale noise in vertical velocities](https://github.com/auraoupa/lupa/blob/master/vertical-velocities-grid-noise)
