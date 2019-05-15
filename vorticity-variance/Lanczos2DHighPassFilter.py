@@ -116,7 +116,7 @@ def plot(filein,navlon,navlat,data,signal_LS,signal_SS,nwin,fcut,plotname=None,v
     plt.savefig(plotname)
 
 ## write output file
-def write(filein,signal_SS,nwin,fcut,varname,**kwargs):
+def write(filein,signal_SS,signal_LS,nwin,fcut,varname,**kwargs):
     """Write the output file with the same structure than the input file
        In the variable varname_filt, the fine scale signal is written
     """
@@ -142,8 +142,10 @@ def write(filein,signal_SS,nwin,fcut,varname,**kwargs):
 
     #Create output variable
     datain=dstin[varname]
-    dataout=dstout.createVariable(varname+'_filt',datain.datatype,datain.dimensions)
-    dataout.setncatts({k: datain.getncattr(k) for k in datain.ncattrs()})
+    dataout1=dstout.createVariable(varname+'_small_scale',datain.datatype,datain.dimensions)
+    dataout1.setncatts({k: datain.getncattr(k) for k in datain.ncattrs()})
+    dataout2=dstout.createVariable(varname+'_large_scale',datain.datatype,datain.dimensions)
+    dataout2.setncatts({k: datain.getncattr(k) for k in datain.ncattrs()})
 
     #Because time is a unlimited dimension we have to fill the file with an temporary array
     sh=signal_SS.shape
@@ -151,7 +153,15 @@ def write(filein,signal_SS,nwin,fcut,varname,**kwargs):
     ydim=sh[1]  
     ztemp=np.zeros((1,xdim,ydim))
     ztemp[0,:,:]=signal_SS[:,:]
-    dataout[0,:,:] = ztemp[0,:,:]
+    dataout1[0,:,:] = ztemp[0,:,:]
+
+    sh=signal_LS.shape
+    xdim=sh[0]
+    ydim=sh[1]
+    ztemp=np.zeros((1,xdim,ydim))
+    ztemp[0,:,:]=signal_LS[:,:]
+    dataout2[0,:,:] = ztemp[0,:,:]
+
     dstout.close()    
 
 
