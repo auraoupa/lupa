@@ -1,0 +1,1 @@
+python=2.7.16 xarray=0.10.7 dask=1.2.0 dask-core=1.2.0 netcdf4=1.4.2 basemap=1.0.7 numpy=1.11.3 scipy=1.2.1 ipykernel
